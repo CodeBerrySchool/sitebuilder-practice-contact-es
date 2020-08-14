@@ -1,0 +1,94 @@
+/**
+* RESUMEN
+*
+* Este archivo maneja el layout del sitio web. En lugar de configurar
+* los componentes del layout uno por uno, creamos un sistema separado
+* que sólo tiene un objetivo: decirle a cada elemento qué tamaño
+* debe tener y dónde debe aparecer.
+*
+* Las clases declaradas aquí pueden ser invocadas en cualquier container
+* para que sean del tamaño correcto y se comporten de la manera correcta.
+*/
+
+
+/**
+* TABLA DE CONTENIDOS 
+*
+* LAYOUT
+* Elementos.................Las reglas de tamaño de los containers.
+* Modificadores..............Las reglas que modifican al layout; ej. floats.
+*
+* CANALETAS
+* Canaletas horizontales....Las reglas de los whitespace horizontales entre los containers.
+*
+* HELPERS
+* Clearfix...............Una class que puede ser invocada en containers floated.
+*/
+
+
+/*------------------------------------*\
+#LAYOUT
+\*------------------------------------*/
+
+/**
+* 1. Cuando necesitamos una canaleta (gutter) vertical entre dos containers
+* usamos estas clases. Se escalan a sí mismas automáticamente para que así
+* se salten la mitad del whitespace entre dos elementos. Cuando dos elementos
+* se colocan uno al lado del otro, una canaleta con el tamaño apropiado aparece
+* entre ellos automáticamente. Para obtener todo el efecto, debemos hacer float
+* a un elemento hacia la izquierda, y el otro a la derecha con las clases correctas.
+*
+* 2. Si necesitas centrar un elemento horizontalmente, usa esta class.
+*
+* 3. Si necesitas hacer float a un elemento, estas clases son para ti.
+* No olvides invocar a la class .clearfix 
+* de la sección  HELPERS en el container.
+*/
+
+.layout__item--full-width               { width: 100%; }
+
+.layout__item--70-percent               { width: 70%; }
+
+.layout__item--50-percent               { width: 50%; }
+
+.layout__item--50-percent-w-gutter      { width: calc(50% - 1.071rem); } /* [1] */
+
+
+.layout__item--content-w-sticked-footer { min-height: calc(100vh - 80px); }
+
+
+.layout__item--centered-horizontally { /* [2] */
+  margin-left:  auto;
+  margin-right: auto;
+}
+
+
+.layout__item--floated-left  { float: left; } /* [3] */
+
+.layout__item--floated-right { float: right; }/* [3] */
+
+
+
+
+
+/*------------------------------------*\
+#CANALETAS
+\*------------------------------------*/
+
+.gutter--horizontal-small { margin-bottom: 2.142rem; }
+
+.gutter--horizontal-big   { margin-bottom: 2.857rem; }
+
+
+
+
+
+/*------------------------------------*\
+#HELPERS
+\*------------------------------------*/
+
+.clearfix:after {
+  content:  "";
+  display:  table;
+  clear:    both;
+}

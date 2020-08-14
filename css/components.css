@@ -1,0 +1,322 @@
+/**
+ * RESUMEN
+ *
+ * Este archivo describe los elementos que componen el sitio.
+ * Desde el layout interno hasta el color de las fuentes, etc.
+ *
+ * Lo viste antes, pero ahora, pensar en BEM (Block–Element–Modifier)
+ * es incluso más aparente en el código. Si esta es la primera vez
+ * que escuchas sobre el BEM, te recomendamos leer la siguiente sección
+ * en las CSS guidelines de Harry Roberts: https://cssguidelin.es/#bem-like-naming.
+ */
+
+
+/**
+ * TABLA DE CONTENIDOS 
+ *
+ * 1. BOTONES
+ *
+ * 2. ENCABEZADO
+ *
+ * 3. NAVEGACIÓN
+ *
+ * 4. INFORMACIÓN DE CONTACTO
+ *
+ * 5. FORMATO DE CONTACTO
+ *
+ * 6. PIE DE PÁGINA
+ */
+
+
+
+
+
+/*------------------------------------*\
+  #BOTONES
+\*------------------------------------*/
+
+/**
+ * 1. Quitamos el border para que no nos moleste cuando pongamos el padding.
+ * Además, es innecesario poner borders en un botón completo. :)
+ *
+ */
+
+ .button {
+  display:        inline-block;
+  border:         2px solid;
+  border-radius:  1.786rem;
+  text-align:     center;
+}
+
+  .button--primary-solid {
+    border:           0; /* [1] */
+    background-color: #6200ea;
+    color:            #ffffff;
+  }
+
+  .button--primary-solid:visited { color: #ffffff; }
+
+
+
+
+
+/*------------------------------------*\
+  #ENCABEZADO
+\*------------------------------------*/
+
+.header {
+  height:           80px;
+  background-color: #6200ea;
+}
+
+  .logo {
+    float:  left;
+    margin: 1.017rem 0;
+  }
+
+
+
+
+
+/*------------------------------------*\
+  #NAVEGACIÓN
+\*------------------------------------*/
+
+/**
+ * 1. Este padding es necesario para que el sitio pueda mostrar
+ * la barra blanca del efecto hover en el lugar correcto.
+ *
+ * 2. Le damos al enlace un border bottom que es invisible por defecto.
+ * Lo usaremos después para que aparezca una barra gris cuando hagamos hover sobre él.
+ * El border es invisible por defecto así que sólo debemos cambiar su color,
+ * y así la interfaz no se descompone como sí lo haría si le diéramos el boder
+ * al hover.
+ *
+ * 3. Esta regla quita el margin izquierdo innecesario
+ * del primer enlace.
+ */
+
+.navigation { height: 80px; }
+
+  .navigation__link-container {
+    float:        right;
+    padding-top:  2.321rem;
+  }
+
+    .navigation__link {
+      vertical-align: middle;
+      padding-bottom: 2rem; /* [1] */
+      border-bottom:  4px solid; /* [2] */
+      border-color:   transparent; /* [2] */
+      margin-left:    4.571rem;
+      color:          #f4f3f5;
+      opacity:        0.65;
+      font-size:      .857rem;
+      font-weight:    bold;
+      text-transform: uppercase;
+      letter-spacing: .171rem;
+    }
+
+    a.navigation__link:first-child { margin-left: 0; } /* [3] */
+
+    .navigation__link:visited { color: #f4f3f5; }
+
+    .navigation__link:hover {
+      border-color:   #ffffff;
+      color:          #ffffff;
+      opacity:        1;
+    }
+
+
+
+
+
+/*------------------------------------*\
+  #INFORMACIÓN DE CONTACTO
+\*------------------------------------*/
+
+/**
+ * 1. Los elementos anchor son inline por defecto. Si queremos mostrarlos
+ * adyacentemente al otro, y queremos controlar los valores de los margins,
+ * paddings etc., debemos convertirlos en elementos block o inline-block.
+ *
+ * 2. Debemos sobreescribir el margin heading bottom por defecto.
+ *
+ * 3. Este ruleset crea el fondo circular de los iconos social media.
+ *
+ * 4. Si un elemento necesita un border perfectamente circular, es importante hacer
+ * que su width y height sean del mismo tamaño. Si no, sólo obtendremos un óvalo.
+ * El tamaño de los paddings también deben ser del mismo tamaño en cualquier lado.
+ *
+ * 5. Puedes hacer un border perfectamente circular con un 50% border radius
+ * si el width y el height es el mismo.
+ *
+ * 6. Este ruleset controla los iconos de FontAwesome. 
+ * Quita el width y height extra que hay en ellos por defecto
+ * y establece su valor correctamente.
+ */
+
+.contact-info {
+  padding:          4.286rem;
+  border-radius:    1.071rem;
+  background-color: #ffffff;
+}
+
+  .contact-info__map {
+    width:         100%;
+    height:        280px;
+    border-radius: 1.071rem;
+  }
+
+  .contact-info__map,
+  .contact-info__address,
+  .contact-info__phone-email {
+    margin-bottom: 2.143rem;
+  }
+
+  .contact-info__social-media { margin-bottom: .357rem; }
+
+    .contact-info__heading,
+    .contact-info__link {
+      color: #6200ea;
+    }
+
+    .contact-info__link {
+      display:        block; /* [1] */
+      margin-bottom:  .714rem;
+      font-size:      .857rem;
+      font-weight:    bold;
+      text-transform: uppercase;
+      letter-spacing: .171rem;
+    }
+
+    .contact-info__heading {
+      margin-bottom:  .7143rem; /* [2] */
+      font-size:      .857rem;
+      font-weight:    bold;
+      text-transform: uppercase;
+      letter-spacing: .171rem;
+    }
+
+    .contact-info__social-media-link { /* [3] */
+      display:          inline-block; /* [1] */
+      width:            2.857rem; /* [4] */
+      height:           2.857rem; /* [4] */
+      padding:          .714rem; /* [4] */
+      border-radius:    50%; /* [5] */
+      margin-right:     .714rem;
+      background-color: #6200ea;
+      text-align:       center;
+    }
+
+      .contact-info__social-media-icon { /* [6] */
+        color:          #ffffff;
+        font-size:      1.4285rem;
+      }
+
+
+
+
+
+/*------------------------------------*\
+#FORMULARIO DE CONTACTO
+\*------------------------------------*/
+
+/**
+ * 1. Los inputs son elementos inline por defecto. Antes de empezar a 
+ * manipular los valores de los margins, paddings, etc., debemos 
+ * convertirlos en elementos block o inline-block.
+ *
+ * 2. Primero, debemos hacer que el border inherente del input sea cero.
+ *
+ * 3. Le damos al input un border bottom que es invisible por defecto.
+ * Lo usaremos después para hacer que una barra morada aparezca en focus.
+ * El border es invisible por defecto, por lo que sólo hay que cambiar su color,
+ * y así la interfaz no se descompone como sí lo haría si le damos el border
+ * al focus.
+ *
+ * 4. Este ruleset da formato al texto de los placeholder.
+ *
+ * 5. Podemos darle altura y anchura a los elementos textarea. 
+ * Aquí, usamos el primero.
+ *
+ * 6. Este ruleset da formato al botón enviar, añadiendo reglas al
+ * .button y al .button--primary-solid.
+ */
+
+.contact-form {
+  padding:          4.286rem;
+  border-radius:    1.071rem;
+  background-color: #ffffff;
+}
+
+  .contact-form__header { margin-bottom: 1.429rem; }
+
+    .contact-form__title { margin-bottom: .7143rem}
+
+    .contact-form__cta {
+      font-size:   1.429rem;
+      line-height: 30px;
+    }
+
+  .contact-form__input-field {
+    display:          block; /* [1] */
+    width:            100%;
+    padding:          1.1428rem 0 .9286rem 1.7143rem;
+    border:           0; /* [2] */
+    border-bottom:    3px solid; /* [3] */
+    border-color:     transparent; /* [3] */
+    margin-bottom:    1.071rem;
+    background-color: #f4f3f5;
+    outline:          none;
+  }
+
+    .contact-form__input-field:focus { border-bottom-color: #6200ea; }
+
+    .contact-form__input-field::placeholder { /* [4] */
+      font-weight: bold;
+      opacity:     .25;
+    }
+
+  .contact-form__input-field--textarea {
+    height:        150px; /* [5] */
+    margin-bottom: 1.4286rem;
+  }
+
+  .contact-form__submit { /* [6] */
+    width:          100%;
+    padding:        1.286rem 0;
+    margin-bottom:  0;
+    font-size:      .857rem;
+    font-weight:    bold;
+    text-transform: uppercase;
+    letter-spacing: .171rem;
+  }
+
+
+
+
+
+/*------------------------------------*\
+  #PIE DE PÁGINA
+\*------------------------------------*/
+
+.footer {
+  height:           7.143rem;
+  padding:          3.071rem 0 3rem 0;
+  background-color: #211138;
+  text-align:       center;
+}
+
+  .footer__copyright {
+    color:          #b2acba;
+    font-size:      .857rem;
+    font-weight:    bold;
+    text-transform: uppercase;
+    letter-spacing: .171rem;
+  }
+
+  .footer__brand-name,
+  .footer__student-name {
+    color: #6200ea;
+  }
